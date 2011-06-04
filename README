@@ -1,0 +1,18 @@
+This is a simple tool to bootstrap ec2 instances.
+
+It generates a user data script that can be passed
+to an instance on initialization.
+Upon execution, the script install git and clones
+a remote git repo and executes the file "run" inside it.
+
+Other than that, it's responsibility of the external
+git repo to provide the run script to bootstrap
+the system (say install puppet or chef for example).
+
+To use it just run:
+ $> ./gen-ec2-userdata.sh <git repo url> <path to ssh private key>
+
+I will generate a file called ec2-userdata.sh which you must use
+as user data parameter to the ec2 instance.
+
+
