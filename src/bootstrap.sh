@@ -9,6 +9,7 @@ tmp=$(mktemp -d /tmp/bootstrap.XXXXX)
 echo "decompressing to $tmp"
 cd $tmp
 tail -n +$SKIP $THIS | tar -xz
+export EC2_GIT_BOOTSTRAP_PATH=$tmp
 ./post-extract.sh
 
 #

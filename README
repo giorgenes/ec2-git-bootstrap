@@ -4,6 +4,12 @@ It generates a user data script that can be passed
 to an instance on initialization.
 Upon execution, the script install git and clones
 a remote git repo and executes the file "run" inside it.
+The script exports the env var EC2_GIT_BOOTSTRAP_PATH
+which points to the extracted data archive.
+The local directory "data" will be contained in
+$EC2_GIT_BOOTSTRAP_PATH/data/
+This can be used to pass files along to the boostrap
+script.
 
 Other than that, it's responsibility of the external
 git repo to provide the run script to bootstrap

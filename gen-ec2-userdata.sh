@@ -12,6 +12,7 @@ if [ $# -gt 1 ]; then
 	cp $2 $tmp/sshkey
 fi
 
+cp -r data $tmp/
 cp src/post-extract.sh $tmp
 echo $1 > $tmp/gitrepo
 tmptar=$(mktemp /tmp/gen-ec2-userdata.XXXXX.tar.gz)
