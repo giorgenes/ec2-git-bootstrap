@@ -1,20 +1,16 @@
 #!/bin/bash
 
 if [ $# -lt 1 ]; then
-	echo "$0 <git repo url> <path to ssh private key>"
+	echo "$0 <data dir>"
 	exit 1
 fi
 
 tmp=$(mktemp -d /tmp/gen-ec2-userdata.XXXXX)
 echo $tmp
 
-if [ $# -gt 1 ]; then
-	cp $2 $tmp/sshkey
-fi
-
-cp -r data $tmp/
+mkdir -p $tmp/data
+cp -r $1/* $tmp/data/
 cp src/post-extract.sh $tmp
-echo $1 > $tmp/gitrepo
 tmptar=$(mktemp /tmp/gen-ec2-userdata.XXXXX.tar.gz)
 tar -czf $tmptar -C $tmp .
 (cat src/bootstrap.sh; cat $tmptar) > ec2-userdata.sh

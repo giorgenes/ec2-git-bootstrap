@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec ssh -i ./sshkey $1 $2
+exec ssh -i ./data/id_rsa $1 $2
