@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec ssh -i ./data/id_rsa $1 $2
+exec ssh -o "StrictHostKeyChecking no" -i ./data/id_rsa $1 $2
