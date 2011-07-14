@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require 'lib/ec2-git-bootstrap'
+
+if ARGV.size < 1
+	puts "#{$0} <data dir>"
+	exit 1
+end
+
+gen = Ec2BootstrapGenerator.new
+script = gen.generate_from_dir(ARGV[0])
+
+f = File.new("ec2-userdata.sh", "w")
+f.write(script)
+f.close
+
+puts "ec2-userdata.sh generated. Start a new ec2 instance"
+puts "with that file as user data to bootstrap it."
