@@ -7,6 +7,6 @@ Gem::Specification.new do |s|
   s.summary = %q{}
   s.homepage = %q{http://github.com/giorgenes/ec2-git-bootstrap/}
   s.description = %q{}
-  s.executables << "gen-ec2-userdata.sh"
+  s.executables << "gen-ec2-userdata"
   s.files = Dir["src/*"] + Dir["bin/*"] + ["README"] + Dir["lib/*"]
 end
